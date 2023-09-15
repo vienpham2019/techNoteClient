@@ -10,7 +10,7 @@ const Public = () => {
                 <p>
                     Located in Beautiful Downtown Foo City, Dan D. Repairs provides a trained staff ready to meet you tech repair needs.
                 </p>
-                <address className="public__addr">
+                <address className="public__address">
                     Dan D. Repaisrs <br />
                     555 foo drive <br />
                     Foo City, CA 12345 <br />
