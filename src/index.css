@@ -17,6 +17,25 @@ a {
     cursor: pointer;
 }
 
+.dash-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.form__container {
+    width: 30rem;
+    padding: 1rem;
+    background-color: rgb(238, 238, 238);
+    border-radius: 0.2rem;
+
+}
+
+.form__container form {
+    display: grid;
+    gap: 0.4rem;
+}
+
 /* Hearder */
 
 .dash-header {

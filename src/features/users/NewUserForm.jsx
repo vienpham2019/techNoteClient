@@ -75,54 +75,45 @@ const NewUserForm = () => {
     const validRolesClass = !Boolean(roles.length) ? 'form__input-iscomplete' : '';
 
     const content = (
-        <>
+        <div className="form__container">
             <p className={errClass}>{error?.data?.message}</p>
-            <form className="form" onSubmit={onSaveUserClick}>
+            <form onSubmit={onSaveUserClick}>
                 <div>
                     <h2>New User</h2>
-                    <div>
-                        <button title="Save" disabled={!canSave}><FontAwesomeIcon icon={faSave} /></button>
-                    </div>
                 </div>
-                <label htmlFor="userName">
-                    Username: <span>[3-20 letters]</span>
-                </label>
-                <input
-                    type="text"
-                    id="userName"
-                    name="userName"
-                    autoComplete="off"
-                    value={userName}
-                    onChange={onUserNameChange}
-                />
+                <div className="mb-3">
+                    <label for="username" className="form-label">User name</label>
+                    <input type="text" autoComplete="off" className="form-control" id="username" value={userName} onChange={onUserNameChange} />
+                    <div id="userHelp" className="form-text">3-20 letters</div>
+                </div>
 
-                <label htmlFor="password">
-                    Password: <span>[4-12 chars incl. !@#$%]</span>
-                </label>
-                <input
-                    type="text"
-                    id="password"
-                    name="password"
-                    autoComplete="off"
-                    value={password}
-                    onChange={onPasswordChange}
-                />
+                <div className="mb-3">
+                    <label for="password" className="form-label">Password</label>
+                    <input type="password" autoComplete="off" className="form-control" id="password" value={password} onChange={onPasswordChange} />
+                    <div id="passwordHelp" className="form-text">4-12 chars incl. !@#$%</div>
+                </div>
 
-                <label htmlFor="roles">
-                    ASSIGNED ROLES:
-                </label>
-                <select
-                    name="roles"
-                    id="roles"
-                    multiple={true}
-                    size="3"
-                    value={roles}
-                    onChange={onRolesChange}
-                >
-                    {options}
-                </select>
+                <div className="mb-3">
+                    <label for="roles" className="form-label">
+                        ASSIGNED ROLES:
+                    </label>
+                    <select
+                        class="form-select"
+                        name="roles"
+                        id="roles"
+                        multiple={true}
+                        size="3"
+                        value={roles}
+                        onChange={onRolesChange}
+                    >
+                        {options}
+                    </select>
+                </div>
+                <button className="btn btn-outline-info" disabled={!canSave} type="submit">
+                    Submit
+                </button>
             </form>
-        </>
+        </div>
     )
 
     return content;

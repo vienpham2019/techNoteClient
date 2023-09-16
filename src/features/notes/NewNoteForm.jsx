@@ -42,27 +42,27 @@ const NewNoteForm = ({ users }) => {
     }
 
     const content = (
-        <>
+        <div className="form__container">
             <span>{error?.data?.message}</span>
             <h1>New techNote</h1>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="title">Title</label>
-                    <input name="title" type="text" value={title} onChange={onTiteChange} />
+                <div className="mb-3">
+                    <label for="title" className="form-label">Title</label>
+                    <input type="text" className="form-control" id="title" value={title} onChange={onTiteChange} />
+                </div>
+                <div className="mb-3">
+                    <label for="text" className="form-label">Text</label>
+                    <textarea type="text" class="form-control" rows="3" id="text" value={text} onChange={onTextChange} />
                 </div>
                 <div>
-                    <label htmlFor="text">Text</label>
-                    <input name="text" type="text" value={text} onChange={onTextChange} />
+                    <label for="user" className="form-label">User</label>
+                    <select className="form-select" name="user" id="user" onChange={onUserChange}>{options}</select>
                 </div>
-                <div>
-                    <label htmlFor="user">User</label>
-                    <select name="user" id="user" onChange={onUserChange}>{options}</select>
-                </div>
-                <button disabled={!canSave} onClick={handleSubmit}>
+                <button className="btn btn-outline-info" disabled={!canSave} onClick={handleSubmit}>
                     Submit
                 </button>
             </form>
-        </>
+        </div>
     );
 
     return content;
