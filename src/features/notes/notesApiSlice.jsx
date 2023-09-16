@@ -50,7 +50,7 @@ export const notesApiSlice = apiSlice.injectEndpoints({
                 url: `/notes/${initNote.id}`,
                 method: "PATCH",
                 body: {
-                    ...initNote,
+                    ...initNote.obj,
                 }
             }),
             invalidatesTags: (result, err, arg) => [

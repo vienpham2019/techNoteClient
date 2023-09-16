@@ -40,6 +40,110 @@ a {
 
 /* Welcome */
 
+/* Note */
+
+.note__lists {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem;
+}
+
+.note {
+    display: grid;
+    gap: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: rgb(223, 248, 242);
+    box-shadow: 2px 8px 7px black;
+}
+
+.note--info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note--info-ticket {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.note--header {
+    display: grid;
+    gap: 1rem;
+}
+
+.note--header-user {
+    display: flex;
+    gap: 1rem;
+}
+
+.note--header-user img {
+    border-radius: 50%;
+    width: 4rem;
+    aspect-ratio: 1;
+}
+
+
+.note--header-user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
+}
+
+.note--header-user-info .note--time {
+    font-size: 0.7rem;
+    color: gray;
+}
+
+.note--header-status {
+    text-align: center;
+    font-size: 0.9rem;
+    padding-block: 0.4rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.note--completed {
+    background-color: rgb(32, 235, 117);
+}
+
+.note--open {
+    background-color: rgb(248, 224, 138);
+}
+
+.note--footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.note--footer>button {
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 5rem;
+    padding-block: 0.4rem;
+    border-radius: 0.3rem;
+    border: 1px solid;
+}
+
+.note--footer-edit {
+    color: rgb(0, 115, 255);
+    background-color: rgba(0, 115, 255, 0.3);
+}
+
+.note--footer-delete {
+    color: rgb(241, 37, 37);
+    background-color: rgba(241, 37, 37, 0.3);
+}
+
+/* Note */
+
 /* Public */
 .public {
     display: grid;

@@ -25,30 +25,15 @@ const NotesList = () => {
 
     if (isSuccess) {
         const { ids } = notes;
-        const tableContent = ids?.length
+        content = ids?.length
             ? ids.map(noteId => <Note key={noteId} noteId={noteId} />)
             : null
-
-        content = (
-            <table className="table table--notes">
-                <thead className="table___thead">
-                    <tr>
-                        <th scope="col" className="table__th note__roles">Username</th>
-                        <th scope="col" className="table__th note__roles">Created</th>
-                        <th scope="col" className="table__th note__roles">Updated</th>
-                        <th scope="col" className="table__th note__roles">Titile</th>
-                        <th scope="col" className="table__th note__roles">Owner</th>
-                        <th scope="col" className="table__th note__roles">Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {tableContent}
-                </tbody>
-            </table>
-        )
     }
 
-    return content;
+    return (
+        <div className='note__lists'>
+            {content}
+        </div>);
 }
 
 export default NotesList; 
