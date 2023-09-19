@@ -21,6 +21,7 @@ const EditNoteForm = ({ note, users }) => {
             setUser([]);
             setTitle('');
             setText('');
+            setConpleted(false)
             navigate('/dash/notes')
         }
     }, [isSuccess, navigate]);
@@ -53,8 +54,8 @@ const EditNoteForm = ({ note, users }) => {
                     <input type="text" className="form-control" id="title" value={title} onChange={onTiteChange} />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="text" class="form-label">Text</label>
-                    <textarea type="text" class="form-control" rows="3" id="text" value={text} onChange={onTextChange} />
+                    <label htmlFor="text" className="form-label">Text</label>
+                    <textarea type="text" className="form-control" rows="3" id="text" value={text} onChange={onTextChange} />
                 </div>
                 <div>
                     <label htmlFor="user">User</label>

@@ -5,8 +5,10 @@ import { useSelector } from "react-redux";
 import { selectNoteById, useDeleteNoteMutation } from "./notesApiSlice";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { parseISO, formatDistanceToNow } from "date-fns";
+import useAuth from "../../hooks/useAuth";
 
 const Note = ({ noteId }) => {
+    const { isManager, isAdmin } = useAuth()
     const note = useSelector(state => selectNoteById(state, noteId));
     const [deleteNote, {
         isLoading,
@@ -58,9 +60,11 @@ const Note = ({ noteId }) => {
                     <button className="note--footer-edit" onClick={handleEdit}>
                         <FontAwesomeIcon icon={faPenToSquare} />
                     </button>
-                    <button className="note--footer-delete" onClick={handleDelete}>
-                        <FontAwesomeIcon icon={faTrash} />
-                    </button>
+                    {(isManager || isAdmin) &&
+                        <button className="note--footer-delete" onClick={handleDelete}>
+                            <FontAwesomeIcon icon={faTrash} />
+                        </button>
+                    }
                 </div>
             </div>
         )

@@ -37,7 +37,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
         } else {
             // if 
             if (refreshToken?.error?.status === 403) {
-                refreshToken.error.data.message = 'Your login has expired. ';
+                refreshToken.error.data.message = 'Your login has expired.';
             }
             return refreshToken
         }

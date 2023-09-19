@@ -43,23 +43,23 @@ const PersistLogin = () => {
 
     let content
     if (!persist) {
-        console.log('no persis')
+        // console.log('no persis')
         content = <Outlet />
     } else if (isLoading) {
-        console.log('loadind')
+        // console.log('loadind')
         content = <p>Loading ...</p>
     } else if (isError) {
-        console.log('error')
+        // console.log('error')
         content =
             <div className="alert alert-danger" role="alert">
-                {error?.data?.message}
+                {`${error?.data?.message} - `}
                 <Link to='/login'>Please Login again</Link>
             </div>
     } else if (isSuccess && trueSuccess) { // persist: yes, token: yes
-        console.log('success')
+        // console.log('success')
         content = <Outlet />
     } else if (token && isUninitialized) { // persist: yes, token: yes
-        console.log('token and uninit', isUninitialized)
+        // console.log('token and uninit', isUninitialized)
         content = <Outlet />
     }
 

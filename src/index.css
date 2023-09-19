@@ -189,16 +189,13 @@ a {
 }
 
 .dash-footer__container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     padding: 2rem;
 }
 
-.dash-footer__container>button {
+.dash-footer__container button {
     width: 10rem;
+    height: 4rem;
     border: 0;
-    padding: 1rem;
     cursor: pointer;
     border-radius: 0.2rem;
 }
