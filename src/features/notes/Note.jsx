@@ -1,15 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 
-import { useSelector } from "react-redux";
-import { selectNoteById, useDeleteNoteMutation } from "./notesApiSlice";
+import { useDeleteNoteMutation, useGetNotesQuery } from "./notesApiSlice";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { parseISO, formatDistanceToNow } from "date-fns";
 import useAuth from "../../hooks/useAuth";
+import { memo } from "react";
 
 const Note = ({ noteId }) => {
     const { isManager, isAdmin } = useAuth()
-    const note = useSelector(state => selectNoteById(state, noteId));
+    // const note = useSelector(state => selectNoteById(state, noteId));
+    const { note } = useGetNotesQuery('notesList', {
+        selectFromResult: ({ data }) => ({
+            note: data?.entities[noteId]
+        })
+    })
+
     const [deleteNote, {
         isLoading,
         isSuccess,
@@ -71,4 +77,5 @@ const Note = ({ noteId }) => {
     } else return null;
 }
 
-export default Note; 
+const memorizeNote = memo(Note)
+export default memorizeNote; 
