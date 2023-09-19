@@ -4,6 +4,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCredentials } from './authSlice';
 import { useLoginMutation } from "./authApiSlice";
+import usePersist from "../../hooks/usePersist";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTriangleExclamation, faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
     const userRef = useRef()
@@ -11,6 +14,7 @@ const Login = () => {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [errMsg, setErrMsg] = useState('');
+    const [persist, setPersist] = usePersist();
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -51,8 +55,16 @@ const Login = () => {
 
     const onUsernameChange = (e) => setUserName(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
+    const handleToggle = () => setPersist(prev => !prev)
 
     if (isLoading) return <div>Loading ...</div>
+
+    const errorContainer = (
+        <p ref={errRef} className="alert alert-danger d-flex justify-content-between align-items-center" aria-live="assertive">
+            <div>{errMsg}</div>
+            <FontAwesomeIcon icon={faTriangleExclamation} />
+        </p>
+    )
 
     const content = (
         <section className="public">
@@ -62,7 +74,7 @@ const Login = () => {
             <main className="login">
                 <div className="form__container">
                     {/* aria-live is for creen reader can read when err message appear */}
-                    <p ref={errRef} className="text-danger" aria-live="assertive">{errMsg}</p>
+                    {errMsg && errorContainer}
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
                             <label htmlFor="username" className="form-label text-black">
@@ -98,11 +110,25 @@ const Login = () => {
                         <button className="btn btn-outline-info" type="submit">
                             Sign In
                         </button>
+
+                        <div className="mb-3">
+                            <label htmlFor="persist" className="form-label text-dark mx-2">
+                                Trust This Device
+                            </label>
+                            <input
+                                className="form-check-input"
+                                type="checkbox"
+                                id="persist"
+                                name="persist"
+                                checked={persist}
+                                onChange={handleToggle}
+                            />
+                        </div>
                     </form>
                 </div>
             </main>
             <footer>
-                <Link to="/">Back to Home</Link>
+                <Link to="/"><FontAwesomeIcon icon={faHouse} /> Back to Home</Link>
             </footer>
         </section>
     )

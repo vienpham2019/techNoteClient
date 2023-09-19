@@ -47,15 +47,15 @@ const NewNoteForm = ({ users }) => {
             <h1>New techNote</h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label for="title" className="form-label">Title</label>
+                    <label htmlFor="title" className="form-label">Title</label>
                     <input type="text" className="form-control" id="title" value={title} onChange={onTiteChange} />
                 </div>
                 <div className="mb-3">
-                    <label for="text" className="form-label">Text</label>
+                    <label htmlFor="text" className="form-label">Text</label>
                     <textarea type="text" class="form-control" rows="3" id="text" value={text} onChange={onTextChange} />
                 </div>
                 <div>
-                    <label for="user" className="form-label">User</label>
+                    <label htmlFor="user" className="form-label">User</label>
                     <select className="form-select" name="user" id="user" onChange={onUserChange}>{options}</select>
                 </div>
                 <button className="btn btn-outline-info" disabled={!canSave} onClick={handleSubmit}>

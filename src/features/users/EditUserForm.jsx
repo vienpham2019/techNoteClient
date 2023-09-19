@@ -101,19 +101,19 @@ const EditUserForm = ({ user }) => {
                     <h2>Edit Form</h2>
                 </div>
                 <div className="mb-3">
-                    <label for="username" className="form-label">User name</label>
+                    <label htmlFor="username" className="form-label">User name</label>
                     <input type="text" autoComplete="off" className="form-control" id="username" value={userName} onChange={onUserNameChange} />
                     <div id="userHelp" className="form-text">3-20 letters</div>
                 </div>
 
                 <div className="mb-3">
-                    <label for="password" className="form-label">Password</label>
+                    <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" autoComplete="off" className="form-control" id="password" value={password} onChange={onPasswordChange} />
                     <div id="passwordHelp" className="form-text">4-12 chars incl. !@#$%</div>
                 </div>
 
                 <div className="mb-3">
-                    <label for="roles" className="form-label">
+                    <label htmlFor="roles" className="form-label">
                         ASSIGNED ROLES:
                     </label>
                     <select
@@ -129,7 +129,7 @@ const EditUserForm = ({ user }) => {
                     </select>
                 </div>
                 <div className="mb-3">
-                    <label for="active" className="form-label">
+                    <label htmlFor="active" className="form-label">
                         Active
                     </label>
                     <input
