@@ -8,7 +8,7 @@ import Welcome from './features/auth/Welcome';
 import NotesList from './features/notes/NotesList';
 import UsersList from './features/users/UsersList';
 import EditUser from './features/users/EditUser';
-import NewUserForm from './features/users/NewUserForm';
+import NewUser from './features/users/NewUser';
 import EditNote from './features/notes/EditNote';
 import NewNote from './features/notes/NewNote';
 import Prefetch from './features/auth/Prefecth';
@@ -37,7 +37,7 @@ function App() {
                     <Route path='users'>
                       <Route index element={<UsersList />} />
                       <Route path=":id" element={<EditUser />} />
-                      <Route path="new" element={<NewUserForm />} />
+                      <Route path="new" element={<NewUser />} />
                     </Route>
                   </Route>
 

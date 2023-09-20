@@ -31,8 +31,8 @@ const UsersList = () => {
             : null
 
         content = (
-            <table className="table table--users">
-                <thead className="table___thead">
+            <table className="table table-bordered border-secondary m-5">
+                <thead className="">
                     <tr>
                         <th scope="col" className="table__th user__roles">Username</th>
                         <th scope="col" className="table__th user__roles">Roles</th>

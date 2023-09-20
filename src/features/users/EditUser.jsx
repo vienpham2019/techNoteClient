@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
+
 import { useParams } from "react-router-dom";
-import { selectUserById, useGetUsersQuery } from "./usersApiSlice";
-import EditUserForm from "./EditUserForm";
+import { useGetUsersQuery, useUpdateUserMutation } from "./usersApiSlice";
 import { PulseLoader } from "react-spinners";
+import UserForm from "./UserForm";
 
 const EditUser = () => {
     const { id } = useParams();
@@ -12,7 +12,14 @@ const EditUser = () => {
         })
     })
 
-    const content = user ? <EditUserForm user={user} /> : <PulseLoader color={"#FFF"} />
+    const content = user
+        ? <UserForm
+            user={user}
+            title={'Edit User'}
+            isEditForm={true}
+            formAction={useUpdateUserMutation}
+        />
+        : <PulseLoader color={"#FFF"} />
     return content;
 }
 

@@ -5,8 +5,13 @@
 
 body {
     position: relative;
-    height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+}
+
+.dash {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -20,7 +25,8 @@ a {
 .dash-container {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-block: 2rem;
+    flex-grow: 1
 }
 
 .form__container {
@@ -28,7 +34,6 @@ a {
     padding: 1rem;
     background-color: rgb(238, 238, 238);
     border-radius: 0.2rem;
-
 }
 
 .form__container form {
@@ -64,6 +69,7 @@ a {
 .note__lists {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 1rem;
     margin: 2rem;
 }
@@ -182,7 +188,7 @@ a {
 
 /* Footer */
 .dash-footer {
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     width: 100%;
     background-color: rgb(69, 83, 93);
